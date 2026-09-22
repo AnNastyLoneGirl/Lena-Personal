@@ -1,0 +1,25 @@
+/* If this file is loaded by the Regex phone, the fallback disappears
+   and the green success panel appears. */
+#nt-css-external-test .css-fallback {
+  display: none !important;
+}
+
+#nt-css-external-test .css-result::before {
+  content: "EXTERNAL CSS WORKS";
+}
+
+#nt-css-external-test .css-result {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(35, 190, 110, .16) !important;
+  border: 1px solid rgba(78, 225, 145, .38) !important;
+  color: #8ff0b8 !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em;
+  text-align: center;
+}
