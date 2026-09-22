@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Lena Phone</title>
+  <link rel="stylesheet" href="./phone.css">
+</head>
+<body>
+  <main class="phone" id="phone">
+    <div class="speaker"></div>
+
+    <section class="screen">
+      <header class="statusbar">
+        <span id="clock">14:32</span>
+        <span>Offline&nbsp;&nbsp;Wi‑Fi ×&nbsp;&nbsp;87%</span>
+      </header>
+
+      <section class="page active" data-page="home">
+        <div class="home-time">14:32</div>
+        <div class="home-date" data-i18n="home.date">Tuesday, 22 September</div>
+
+        <div class="apps">
+          <button class="app" data-open="gallery">
+            <span class="icon gallery-icon">▧</span>
+            <span data-i18n="apps.gallery">Gallery</span>
+          </button>
+          <button class="app" data-open="messages">
+            <span class="icon messages-icon">●</span>
+            <span data-i18n="apps.messages">Messages</span>
+          </button>
+          <button class="app" data-open="settings">
+            <span class="icon settings-icon">⚙</span>
+            <span data-i18n="apps.settings">Settings</span>
+          </button>
+        </div>
+
+        <div class="iframe-badge">IFRAME / JS / JSON TEST</div>
+      </section>
+
+      <section class="page" data-page="gallery">
+        <div class="appbar">
+          <button class="back" data-open="home">‹</button>
+          <strong data-i18n="gallery.title">Gallery</strong>
+          <span></span>
+        </div>
+        <button class="photo-card" data-open="photo">
+          <img src="../photos/DCIM/Camera/IMG_20260814_184736.jpg" alt="">
+          <span>IMG_20260814_184736.jpg</span>
+        </button>
+      </section>
+
+      <section class="page photo-page" data-page="photo">
+        <div class="photo-topbar">
+          <button class="back" data-open="gallery">‹</button>
+          <span>IMG_20260814_184736.jpg</span>
+          <button class="dots" type="button">⋮</button>
+        </div>
+        <img class="photo-full" src="../photos/DCIM/Camera/IMG_20260814_184736.jpg" alt="">
+      </section>
+
+      <section class="page" data-page="messages">
+        <div class="appbar">
+          <button class="back" data-open="home">‹</button>
+          <strong data-i18n="messages.title">Messages</strong>
+          <span></span>
+        </div>
+        <div class="placeholder-card">
+          <strong data-i18n="messages.testTitle">Dynamic content works</strong>
+          <p data-i18n="messages.testBody">This text comes from the selected locale JSON file.</p>
+        </div>
+      </section>
+
+      <section class="page" data-page="settings">
+        <div class="appbar">
+          <button class="back" data-open="home">‹</button>
+          <strong data-i18n="settings.title">Settings</strong>
+          <span></span>
+        </div>
+
+        <div class="settings-group">
+          <div class="setting-title" data-i18n="settings.language">Language</div>
+          <div class="lang-buttons">
+            <button type="button" data-lang="en-en">English</button>
+            <button type="button" data-lang="fr-fr">Français</button>
+          </div>
+          <p class="hint" data-i18n="settings.hint">
+            This is only a test: changing the language loads another JSON file from GitHub Pages.
+          </p>
+        </div>
+      </section>
+
+      <nav class="navbar">
+        <button id="navBack" aria-label="Back">◁</button>
+        <button data-open="home" class="home-pill" aria-label="Home"></button>
+        <button aria-label="Recents">□</button>
+      </nav>
+    </section>
+  </main>
+
+  <script src="./phone.js"></script>
+</body>
+</html>

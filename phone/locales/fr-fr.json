@@ -1,0 +1,23 @@
+{
+  "home": {
+    "date": "Mardi 22 septembre"
+  },
+  "apps": {
+    "gallery": "Galerie",
+    "messages": "Messages",
+    "settings": "Paramètres"
+  },
+  "gallery": {
+    "title": "Galerie"
+  },
+  "messages": {
+    "title": "Messages",
+    "testTitle": "Le contenu dynamique fonctionne",
+    "testBody": "Ce texte provient du fichier JSON de la langue sélectionnée."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "hint": "Ceci est seulement un test : changer la langue charge un autre fichier JSON depuis GitHub Pages."
+  }
+}

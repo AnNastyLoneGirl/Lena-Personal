@@ -1,0 +1,23 @@
+{
+  "home": {
+    "date": "Tuesday, 22 September"
+  },
+  "apps": {
+    "gallery": "Gallery",
+    "messages": "Messages",
+    "settings": "Settings"
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "messages": {
+    "title": "Messages",
+    "testTitle": "Dynamic content works",
+    "testBody": "This text comes from the selected locale JSON file."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "hint": "This is only a test: changing the language loads another JSON file from GitHub Pages."
+  }
+}
