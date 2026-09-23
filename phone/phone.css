@@ -37,11 +37,6 @@ body {
   appearance:none!important;-webkit-appearance:none!important;
   margin:0!important;padding:0!important;border:0!important
 }
-#nt-phone-v20 .nt-lang-en{display:inline}
-#nt-phone-v20 .nt-lang-fr{display:none!important}
-#nt20-lang-fr:checked ~ .display .nt-lang-en{display:none!important}
-#nt20-lang-fr:checked ~ .display .nt-lang-fr{display:inline!important}
-
 #nt-phone-v20 .lang-setting{
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07);
@@ -678,3 +673,9 @@ body {
 #nt-phone-v20.s57{--nt-ssec:57s;}
 #nt-phone-v20.s58{--nt-ssec:58s;}
 #nt-phone-v20.s59{--nt-ssec:59s;}
+
+
+/* Read-state badges */
+#nt-phone-v20 .badge.is-read {
+  display: none !important;
+}

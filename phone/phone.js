@@ -4,31 +4,81 @@
   const root = document.getElementById('nt-phone-v20');
   if (!root) return;
 
-  // ---------- Live date / clock ----------
+  // ---------- Internationalization ----------
+  const localeCache = new Map();
+  let currentLanguage = 'en';
+
+  async function loadLocale(language) {
+    const lang = language === 'fr' ? 'fr' : 'en';
+    if (localeCache.has(lang)) return localeCache.get(lang);
+
+    const response = await fetch(`./locales/${lang}.json`, { cache: 'no-cache' });
+    if (!response.ok) {
+      throw new Error(`Unable to load locale ${lang}: HTTP ${response.status}`);
+    }
+
+    const dictionary = await response.json();
+    localeCache.set(lang, dictionary);
+    return dictionary;
+  }
+
+  function lookup(dictionary, key) {
+    return key.split('.').reduce((value, part) => value?.[part], dictionary);
+  }
+
   function pad(value) {
     return String(value).padStart(2, '0');
   }
 
+  function updateLocalizedDate(language = currentLanguage) {
+    const now = new Date();
+    const mm = pad(now.getMonth() + 1);
+    const dd = pad(now.getDate());
+    const yyyy = now.getFullYear();
+    const value = language === 'fr'
+      ? `${dd}/${mm}/${yyyy}`
+      : `${mm}/${dd}/${yyyy}`;
+
+    document.querySelectorAll('[data-lena-date]').forEach(el => {
+      el.textContent = value;
+    });
+  }
+
+  async function applyLanguage(language) {
+    const lang = language === 'fr' ? 'fr' : 'en';
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+
+    try {
+      const dictionary = await loadLocale(lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const translated = lookup(dictionary, key);
+        if (typeof translated === 'string') {
+          el.textContent = translated;
+        } else {
+          console.warn(`[Lena Phone] Missing translation: ${lang}.${key}`);
+        }
+      });
+    } catch (error) {
+      console.error('[Lena Phone] Translation load failed.', error);
+    }
+
+    updateLocalizedDate(lang);
+  }
+
+  // ---------- Live date / clock ----------
   function initializeClock() {
     const now = new Date();
     root.classList.remove(
       ...[...root.classList].filter(x => /^h\d\d$|^m\d\d$|^s\d\d$/.test(x))
     );
     root.classList.add(`h${pad(now.getHours())}`, `m${pad(now.getMinutes())}`, `s${pad(now.getSeconds())}`);
-
-    const mm = pad(now.getMonth() + 1);
-    const dd = pad(now.getDate());
-    const yyyy = now.getFullYear();
-
-    document.querySelectorAll('[data-lena-date="en"]').forEach(el => {
-      el.textContent = `${mm}/${dd}/${yyyy}`;
-    });
-    document.querySelectorAll('[data-lena-date="fr"]').forEach(el => {
-      el.textContent = `${dd}/${mm}/${yyyy}`;
-    });
+    updateLocalizedDate(currentLanguage);
   }
 
   initializeClock();
+  applyLanguage('en');
 
   // ---------- NastyBridge sandbox protocol ----------
   const bridge = {
@@ -100,13 +150,44 @@
     return true;
   }
 
+  function restoreUnlockedPhone() {
+    persistedUnlocked = true;
+
+    // Once the correct PIN has been entered once, the phone is considered
+    // trusted for this SillyTavern chat. Reopening/reloading skips the lock.
+    checkRadio('nt20-home');
+    root.classList.add('nt-phone-trusted');
+  }
+
+
+  function setMayaThreadRead(isRead = true) {
+    document.querySelectorAll('[data-lena-unread="maya"]').forEach(badge => {
+      badge.classList.toggle('is-read', Boolean(isRead));
+      badge.setAttribute('aria-hidden', isRead ? 'true' : 'false');
+    });
+  }
+
   async function restoreBridgeState() {
     const unlocked = await readState('phone_unlocked');
-    persistedUnlocked = unlocked === true || unlocked === 'true' || unlocked === 1 || unlocked === '1';
+    const wasUnlocked = unlocked === true || unlocked === 'true' || unlocked === 1 || unlocked === '1';
 
     const language = await readState('language');
-    if (language === 'fr') checkRadio('nt20-lang-fr');
-    if (language === 'en') checkRadio('nt20-lang-en');
+    if (language === 'fr') {
+      checkRadio('nt20-lang-fr');
+      await applyLanguage('fr');
+    } else {
+      checkRadio('nt20-lang-en');
+      await applyLanguage('en');
+    }
+
+    if (wasUnlocked) {
+      restoreUnlockedPhone();
+    }
+
+    const mayaOpened = await readState('maya_thread_opened');
+    const mayaWasOpened =
+      mayaOpened === true || mayaOpened === 'true' || mayaOpened === 1 || mayaOpened === '1';
+    setMayaThreadRead(mayaWasOpened);
 
     try {
       await request('frame.resize', { height: 750 });
@@ -149,14 +230,16 @@
     if (!(el instanceof HTMLInputElement)) return;
 
     if (el.name === 'nt20lang' && el.checked) {
-      writeState('language', el.id === 'nt20-lang-fr' ? 'fr' : 'en');
+      const language = el.id === 'nt20-lang-fr' ? 'fr' : 'en';
+      applyLanguage(language);
+      writeState('language', language);
     }
   });
 
   // The final correct PIN key is the "0" label in pin stage 3.
   const unlockKey = document.querySelector('.pin-stage.pin-s3 label[for="nt20-home"]');
   unlockKey?.addEventListener('click', () => {
-    persistedUnlocked = true;
+    restoreUnlockedPhone();
     writeState('phone_unlocked', true, 'boolean');
   });
 
@@ -167,12 +250,20 @@
     if (!persistedUnlocked || !off?.checked) return;
 
     event.preventDefault();
-    checkRadio('nt20-home');
+    event.stopPropagation();
+    restoreUnlockedPhone();
   }, true);
 
   // Story/progress markers for later card logic.
+  document.querySelectorAll('label[for="nt20-maya"]').forEach(el => {
+    el.addEventListener('click', () => {
+      // Clear the unread badge immediately, then persist it for future reloads.
+      setMayaThreadRead(true);
+      writeState('maya_thread_opened', true, 'boolean');
+    });
+  });
+
   const progressTargets = [
-    ['label[for="nt20-maya"]', 'maya_thread_opened'],
     ['label[for="nt20-photo1"]', 'photo1_opened'],
     ['label[for="nt20-notes"]', 'notes_opened'],
     ['label[for="nt20-recording1"]', 'recording_opened'],
