@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Lena — Personal Phone</title>
+  <link rel="stylesheet" href="./phone.css">
+</head>
+<body>
+<div id="nt-phone-v20" class="h00 m00 s00">
+
+<!-- STATE MACHINE -->
+<input checked="" class="nt20-lang-state" hidden="" id="nt20-lang-en" name="nt20lang" type="radio"/>
+<input class="nt20-lang-state" hidden="" id="nt20-lang-fr" name="nt20lang" type="radio"/>
+<input checked="" class="nt20-state" hidden="" id="nt20-off" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-lock" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-home" name="nt19screen" type="radio"/>
+<input checked="" class="nt20-pin-state" hidden="" id="nt20-pin0" name="nt20pin" type="radio"/>
+<input class="nt20-pin-state" hidden="" id="nt20-pin5" name="nt20pin" type="radio"/>
+<input class="nt20-pin-state" hidden="" id="nt20-pin54" name="nt20pin" type="radio"/>
+<input class="nt20-pin-state" hidden="" id="nt20-pin542" name="nt20pin" type="radio"/>
+<input class="nt20-pin-state" hidden="" id="nt20-pin-error" name="nt20pin" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-messages" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-maya" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-liv" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-mom" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-alex" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-mrlouis" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-gallery" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-photo1" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-photo1-menu" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-photo1-details" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-photo2" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-phone-recent" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-phone-contacts" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-phone-keypad" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-camera" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-weather" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-settings" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-notes" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-recorder" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-recording1" name="nt19screen" type="radio"/>
+<input class="nt20-state" hidden="" id="nt20-recents" name="nt19screen" type="radio"/>
+<!-- Reusable global error overlay toggle -->
+<input class="nt20-error-toggle" id="nt20-error-overlay" style="display:none!important;position:absolute!important;width:0!important;height:0!important;opacity:0!important;pointer-events:none!important;appearance:none!important;-webkit-appearance:none!important;margin:0!important;padding:0!important;border:0!important;" type="checkbox"/>
+<label class="power-button" for="nt20-lock" title="Power"></label>
+<div class="speaker"></div>
+<div class="display">
+<div class="screen-off"></div>
+<div class="island"></div>
+<div class="status"><span class="time"><span class="nt-live-clock"><span class="nt-live-part"><span class="nt-live-reel nt-live-hours"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span></span></span><span class="nt-live-sep">:</span><span class="nt-live-part"><span class="nt-live-reel nt-live-minutes"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span></span></span></span></span><span><span class="nt-lang-en">Offline  Wi‑Fi ×  ▮▮▮  87%</span><span class="nt-lang-fr">Hors ligne  Wi‑Fi ×  ▮▮▮  87%</span></span></div>
+<!-- LOCK SCREEN -->
+<section class="pg-lock">
+  <div class="lock-wallpaper" style="background-image:url('../wallpapers/lockscreen/IMG_20260528_231842.jpg');">
+    <div class="lock-wallpaper-shade"></div>
+  </div>
+  <div class="lock-content">
+    <div class="lock-clock">
+      <div class="big"><span class="nt-live-clock"><span class="nt-live-part"><span class="nt-live-reel nt-live-hours"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span></span></span><span class="nt-live-sep">:</span><span class="nt-live-part"><span class="nt-live-reel nt-live-minutes"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span></span></span></span></div>
+      <div class="date"><span class="nt-lang-en"><span data-lena-date="en"></span></span><span class="nt-lang-fr"><span data-lena-date="fr"></span></span></div>
+    </div>
+    <div class="lock-pin-panel">
+      <div class="lock-title"><span class="nt-lang-en">Enter PIN</span><span class="nt-lang-fr">Saisissez le code PIN</span></div>
+      <div class="pin-progress pin-p0"><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span></div>
+      <div class="pin-progress pin-p1"><span class="pin-dot on"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span></div>
+      <div class="pin-progress pin-p2"><span class="pin-dot on"></span><span class="pin-dot on"></span><span class="pin-dot"></span><span class="pin-dot"></span></div>
+      <div class="pin-progress pin-p3"><span class="pin-dot on"></span><span class="pin-dot on"></span><span class="pin-dot on"></span><span class="pin-dot"></span></div>
+<div class="pin-stage pin-s0"><label class="pin-key" for="nt20-pin-error">1</label><label class="pin-key" for="nt20-pin-error">2</label><label class="pin-key" for="nt20-pin-error">3</label><label class="pin-key" for="nt20-pin-error">4</label><label class="pin-key" for="nt20-pin5">5</label><label class="pin-key" for="nt20-pin-error">6</label><label class="pin-key" for="nt20-pin-error">7</label><label class="pin-key" for="nt20-pin-error">8</label><label class="pin-key" for="nt20-pin-error">9</label><span class="pin-key pin-empty"></span><label class="pin-key" for="nt20-pin-error">0</label><label class="pin-key pin-back" for="nt20-pin0">⌫</label></div><div class="pin-stage pin-s1"><label class="pin-key" for="nt20-pin-error">1</label><label class="pin-key" for="nt20-pin-error">2</label><label class="pin-key" for="nt20-pin-error">3</label><label class="pin-key" for="nt20-pin54">4</label><label class="pin-key" for="nt20-pin-error">5</label><label class="pin-key" for="nt20-pin-error">6</label><label class="pin-key" for="nt20-pin-error">7</label><label class="pin-key" for="nt20-pin-error">8</label><label class="pin-key" for="nt20-pin-error">9</label><span class="pin-key pin-empty"></span><label class="pin-key" for="nt20-pin-error">0</label><label class="pin-key pin-back" for="nt20-pin0">⌫</label></div><div class="pin-stage pin-s2"><label class="pin-key" for="nt20-pin-error">1</label><label class="pin-key" for="nt20-pin542">2</label><label class="pin-key" for="nt20-pin-error">3</label><label class="pin-key" for="nt20-pin-error">4</label><label class="pin-key" for="nt20-pin-error">5</label><label class="pin-key" for="nt20-pin-error">6</label><label class="pin-key" for="nt20-pin-error">7</label><label class="pin-key" for="nt20-pin-error">8</label><label class="pin-key" for="nt20-pin-error">9</label><span class="pin-key pin-empty"></span><label class="pin-key" for="nt20-pin-error">0</label><label class="pin-key pin-back" for="nt20-pin5">⌫</label></div><div class="pin-stage pin-s3"><label class="pin-key" for="nt20-pin-error">1</label><label class="pin-key" for="nt20-pin-error">2</label><label class="pin-key" for="nt20-pin-error">3</label><label class="pin-key" for="nt20-pin-error">4</label><label class="pin-key" for="nt20-pin-error">5</label><label class="pin-key" for="nt20-pin-error">6</label><label class="pin-key" for="nt20-pin-error">7</label><label class="pin-key" for="nt20-pin-error">8</label><label class="pin-key" for="nt20-pin-error">9</label><span class="pin-key pin-empty"></span><label class="pin-key" for="nt20-home">0</label><label class="pin-key pin-back" for="nt20-pin54">⌫</label></div>
+      <div class="pin-error">
+        <div class="pin-error-icon">🔒</div>
+        <div class="pin-error-title"><span class="nt-lang-en">Incorrect PIN</span><span class="nt-lang-fr">Code PIN incorrect</span></div>
+        <div class="pin-error-sub"><span class="nt-lang-en">Try again.</span><span class="nt-lang-fr">Réessayez.</span></div>
+        <label class="pin-retry" for="nt20-pin0"><span class="nt-lang-en">Try again</span><span class="nt-lang-fr">Réessayer</span></label>
+      </div>
+      <div class="lock-foot"><span class="nt-lang-en">Emergency call unavailable</span><span class="nt-lang-fr">Appel d’urgence indisponible</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="launcher">
+<div class="clock"><div class="big"><span class="nt-live-clock"><span class="nt-live-part"><span class="nt-live-reel nt-live-hours"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span></span></span><span class="nt-live-sep">:</span><span class="nt-live-part"><span class="nt-live-reel nt-live-minutes"><span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span></span></span></span></div><div class="date"><span class="nt-lang-en"><span data-lena-date="en"></span></span><span class="nt-lang-fr"><span data-lena-date="fr"></span></span></div></div>
+<div class="grid">
+<label class="app" for="nt20-messages"><span class="ico green">💬</span><span class="txt"><span class="nt-lang-en">Messages</span><span class="nt-lang-fr">Messages</span></span></label>
+<label class="app" for="nt20-phone-recent"><span class="ico blue">📞</span><span class="txt"><span class="nt-lang-en">Phone</span><span class="nt-lang-fr">Téléphone</span></span></label>
+<label class="app" for="nt20-gallery"><span class="ico pink">🖼️</span><span class="txt"><span class="nt-lang-en">Gallery</span><span class="nt-lang-fr">Galerie</span></span></label>
+<label class="app" for="nt20-camera"><span class="ico yellow">📷</span><span class="txt"><span class="nt-lang-en">Camera</span><span class="nt-lang-fr">Appareil photo</span></span></label>
+<label class="app" for="nt20-weather"><span class="ico sky">🌤️</span><span class="txt"><span class="nt-lang-en">Weather</span><span class="nt-lang-fr">Météo</span></span></label>
+<label class="app" for="nt20-settings"><span class="ico gray">⚙️</span><span class="txt"><span class="nt-lang-en">Settings</span><span class="nt-lang-fr">Paramètres</span></span></label>
+<label class="app" for="nt20-notes"><span class="ico orange">📝</span><span class="txt"><span class="nt-lang-en">Notes</span><span class="nt-lang-fr">Notes</span></span></label>
+<label class="app" for="nt20-recorder"><span class="ico pink">🎙️</span><span class="txt"><span class="nt-lang-en">Recorder</span><span class="nt-lang-fr">Dictaphone</span></span></label>
+</div>
+</div>
+<!-- MESSAGES -->
+<section class="page pg-messages">
+<div class="head"><div class="title"><span class="nt-lang-en">Messages</span><span class="nt-lang-fr">Messages</span></div>
+<div class="sub"><span class="nt-lang-en">5 conversations · local storage</span><span class="nt-lang-fr">5 conversations · stockage local</span></div></div>
+<div class="body">
+<label class="row" for="nt20-maya">
+<span class="avatar">👩</span><span class="grow"><span class="rtitle">Maya</span>
+<span class="preview"><span class="nt-lang-en">Lena?</span><span class="nt-lang-fr">Lena ?</span></span></span>
+<span><span class="meta"><span class="nt-lang-en">Today</span><span class="nt-lang-fr">Aujourd’hui</span></span><span class="badge">3</span></span>
+</label>
+<label class="row" for="nt20-liv">
+<span class="avatar">👱‍♀️</span><span class="grow"><span class="rtitle">Liv</span>
+<span class="preview"><span class="nt-lang-en">Fine.</span><span class="nt-lang-fr">D’accord.</span></span></span><span class="meta"><span class="nt-lang-en">Yesterday</span><span class="nt-lang-fr">Hier</span></span>
+</label>
+<label class="row" for="nt20-mom">
+<span class="avatar">❤️</span><span class="grow"><span class="rtitle"><span class="nt-lang-en">Mom</span><span class="nt-lang-fr">Maman</span></span>
+<span class="preview"><span class="nt-lang-en">You too ❤️</span><span class="nt-lang-fr">Toi aussi ❤️</span></span></span><span class="meta"><span class="nt-lang-en">Today</span><span class="nt-lang-fr">Aujourd’hui</span></span>
+</label>
+<label class="row" for="nt20-alex">
+<span class="avatar">👨</span><span class="grow"><span class="rtitle">Alex</span>
+<span class="preview"><span class="nt-lang-en">You have issues.</span><span class="nt-lang-fr">T’as un problème.</span></span></span><span class="meta"><span class="nt-lang-en">2 days ago</span><span class="nt-lang-fr">Il y a 2 jours</span></span>
+</label>
+<label class="row" for="nt20-mrlouis">
+<span class="avatar">💼</span><span class="grow"><span class="rtitle">Mr Louis</span>
+<span class="preview"><span class="nt-lang-en">You too.</span><span class="nt-lang-fr">À vous aussi.</span></span></span><span class="meta"><span class="nt-lang-en">Today</span><span class="nt-lang-fr">Aujourd’hui</span></span>
+</label>
+</div>
+</section>
+<section class="page pg-maya">
+<div class="head"><div class="title">Maya</div><div class="sub"><span class="nt-lang-en">Last message · Today</span><span class="nt-lang-fr">Dernier message · Aujourd’hui</span></div></div>
+<div class="body">
+<div class="msgdate"><span class="nt-lang-en">12 days ago</span><span class="nt-lang-fr">Il y a 12 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Are you alive?</span><span class="nt-lang-fr">Tu es vivante ?</span><div class="msgtime">11:23</div></div><div class="bubble-right"><span class="nt-lang-en">Debatable.</span><span class="nt-lang-fr">Ça se discute.</span><div class="msgtime">11:31</div></div><div class="bubble-left"><span class="nt-lang-en">It’s almost noon.</span><span class="nt-lang-fr">Il est presque midi.</span><div class="msgtime">11:31</div></div><div class="bubble-right"><span class="nt-lang-en">Exactly. Way too early.</span><span class="nt-lang-fr">Exactement. Beaucoup trop tôt.</span><div class="msgtime">11:32</div></div><div class="bubble-left"><span class="nt-lang-en">You’re impossible.</span><span class="nt-lang-fr">T’es impossible.</span><div class="msgtime">11:33</div></div><div class="bubble-right"><span class="nt-lang-en">And yet you keep texting me.</span><span class="nt-lang-fr">Et pourtant tu continues de m’écrire.</span><div class="msgtime">11:35</div></div><div class="bubble-left"><span class="nt-lang-en">Unfortunately ❤️</span><span class="nt-lang-fr">Malheureusement ❤️</span><div class="msgtime">11:36</div></div><div class="msgdate"><span class="nt-lang-en">9 days ago</span><span class="nt-lang-fr">Il y a 9 jours</span></div><div class="bubble-left"><span class="nt-lang-en">I’m at the supermarket. Do you need anything?</span><span class="nt-lang-fr">Je suis au supermarché. Tu as besoin de quelque chose ?</span><div class="msgtime">17:41</div></div><div class="bubble-right"><span class="nt-lang-en">Coffee.</span><span class="nt-lang-fr">Du café.</span><div class="msgtime">17:44</div></div><div class="bubble-left"><span class="nt-lang-en">That isn’t food.</span><span class="nt-lang-fr">Ce n’est pas de la nourriture.</span><div class="msgtime">17:44</div></div><div class="bubble-right"><span class="nt-lang-en">I didn’t say I needed food.</span><span class="nt-lang-fr">J’ai pas dit que j’avais besoin de nourriture.</span><div class="msgtime">17:45</div></div><div class="bubble-left"><span class="nt-lang-en">Anything else?</span><span class="nt-lang-fr">Autre chose ?</span><div class="msgtime">17:46</div></div><div class="bubble-right"><span class="nt-lang-en">Chocolate maybe.</span><span class="nt-lang-fr">Du chocolat peut-être.</span><div class="msgtime">17:47</div></div><div class="bubble-left"><span class="nt-lang-en">Finally a reasonable answer.</span><span class="nt-lang-fr">Enfin une réponse raisonnable.</span><div class="msgtime">17:48</div></div><div class="msgdate"><span class="nt-lang-en">6 days ago</span><span class="nt-lang-fr">Il y a 6 jours</span></div><div class="bubble-left"><span class="nt-lang-en">That movie was terrible.</span><span class="nt-lang-fr">Ce film était horrible.</span><div class="msgtime">20:14</div></div><div class="bubble-right"><span class="nt-lang-en">You picked it.</span><span class="nt-lang-fr">C’est toi qui l’as choisi.</span><div class="msgtime">20:15</div></div><div class="bubble-left"><span class="nt-lang-en">The trailer lied to me.</span><span class="nt-lang-fr">La bande-annonce m’a menti.</span><div class="msgtime">20:15</div></div><div class="bubble-right"><span class="nt-lang-en">The trailer was terrible too.</span><span class="nt-lang-fr">La bande-annonce était horrible aussi.</span><div class="msgtime">20:16</div></div><div class="bubble-left"><span class="nt-lang-en">You could’ve said something.</span><span class="nt-lang-fr">Tu aurais pu dire quelque chose.</span><div class="msgtime">20:17</div></div><div class="bubble-right"><span class="nt-lang-en">Watching you slowly realize it was more entertaining.</span><span class="nt-lang-fr">Te regarder comprendre progressivement était plus divertissant.</span><div class="msgtime">20:18</div></div><div class="bubble-left"><span class="nt-lang-en">I hate you.</span><span class="nt-lang-fr">Je te déteste.</span><div class="msgtime">20:18</div></div><div class="bubble-right"><span class="nt-lang-en">❤️</span><span class="nt-lang-fr">❤️</span><div class="msgtime">20:19</div></div><div class="msgdate"><span class="nt-lang-en">3 days ago</span><span class="nt-lang-fr">Il y a 3 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Lunch tomorrow?</span><span class="nt-lang-fr">On mange ensemble demain ?</span><div class="msgtime">13:02</div></div><div class="bubble-right"><span class="nt-lang-en">Can’t. Client call.</span><span class="nt-lang-fr">Je peux pas. Appel avec un client.</span><div class="msgtime">13:07</div></div><div class="bubble-left"><span class="nt-lang-en">Thursday then?</span><span class="nt-lang-fr">Jeudi alors ?</span><div class="msgtime">13:08</div></div><div class="bubble-right"><span class="nt-lang-en">Should work.</span><span class="nt-lang-fr">Ça devrait aller.</span><div class="msgtime">13:09</div></div><div class="bubble-left"><span class="nt-lang-en">Perfect.</span><span class="nt-lang-fr">Parfait.</span><div class="msgtime">13:10</div></div><div class="msgdate"><span class="nt-lang-en">Yesterday</span><span class="nt-lang-fr">Hier</span></div><div class="bubble-left"><span class="nt-lang-en">Café Marlowe tomorrow, like usual?</span><span class="nt-lang-fr">Café Marlowe demain, comme d’habitude ?</span></div><div class="bubble-right"><span class="nt-lang-en">Yep.</span><span class="nt-lang-fr">Oui.</span></div><div class="bubble-left"><span class="nt-lang-en">Same place, same time?</span><span class="nt-lang-fr">Même endroit, même heure ?</span></div><div class="bubble-right"><span class="nt-lang-en">As always 🙂</span><span class="nt-lang-fr">Comme toujours 🙂</span></div><div class="bubble-left"><span class="nt-lang-en">Good. I need coffee and I need to complain about my week.</span><span class="nt-lang-fr">Parfait. J’ai besoin de café et de me plaindre de ma semaine.</span></div><div class="bubble-right"><span class="nt-lang-en">Mostly the complaining, I assume.</span><span class="nt-lang-fr">Surtout te plaindre, j’imagine.</span></div><div class="bubble-left"><span class="nt-lang-en">Obviously.</span><span class="nt-lang-fr">Évidemment.</span></div><div class="bubble-right"><span class="nt-lang-en">I’ll allow it.</span><span class="nt-lang-fr">Je vais l’autoriser.</span></div><div class="msgdate"><span class="nt-lang-en">Today</span><span class="nt-lang-fr">Aujourd’hui</span></div><div class="bubble-left"><span class="nt-lang-en">I regret staying up that late.</span><span class="nt-lang-fr">Je regrette de m’être couchée aussi tard.</span></div><div class="bubble-right"><span class="nt-lang-en">Every time.</span><span class="nt-lang-fr">À chaque fois.</span></div><div class="bubble-left"><span class="nt-lang-en">I never learn.</span><span class="nt-lang-fr">Je n’apprends jamais.</span></div><div class="bubble-right"><span class="nt-lang-en">Clearly.</span><span class="nt-lang-fr">Clairement.</span></div><div class="bubble-left"><span class="nt-lang-en">I’m getting something sweet later and you can’t stop me.</span><span class="nt-lang-fr">Je prends quelque chose de sucré tout à l’heure et tu ne pourras pas m’en empêcher.</span></div><div class="bubble-right"><span class="nt-lang-en">Why would I stop you?</span><span class="nt-lang-fr">Pourquoi je t’en empêcherais ?</span></div><div class="bubble-left"><span class="nt-lang-en">Because you judge me.</span><span class="nt-lang-fr">Parce que tu me juges.</span></div><div class="bubble-right"><span class="nt-lang-en">I observe.</span><span class="nt-lang-fr">J’observe.</span></div><div class="bubble-left"><span class="nt-lang-en">Worse.</span><span class="nt-lang-fr">Encore pire.</span></div><div class="bubble-right"><span class="nt-lang-en">I’ll text you when I leave.</span><span class="nt-lang-fr">Je t’écris quand je pars.</span></div><div class="bubble-left"><span class="nt-lang-en">I’m at Marlowe.</span><span class="nt-lang-fr">Je suis au Marlowe.</span></div><div class="bubble-left"><span class="nt-lang-en">You coming?</span><span class="nt-lang-fr">Tu arrives ?</span></div><div class="bubble-left"><span class="nt-lang-en">Lena?</span><span class="nt-lang-fr">Lena ?</span></div>
+</div>
+</section>
+<section class="page pg-liv">
+<div class="head"><div class="title">Liv</div><div class="sub"><span class="nt-lang-en">Local conversation</span><span class="nt-lang-fr">Conversation locale</span></div></div>
+<div class="body">
+<div class="msgdate"><span class="nt-lang-en">17 days ago</span><span class="nt-lang-fr">Il y a 17 jours</span></div><div class="bubble-left"><span class="nt-lang-en">I need your opinion.</span><span class="nt-lang-fr">J’ai besoin de ton avis.</span><div class="msgtime">14:22</div></div><div class="bubble-right"><span class="nt-lang-en">That sounds expensive.</span><span class="nt-lang-fr">Ça a l’air coûteux.</span><div class="msgtime">14:23</div></div><div class="bubble-left"><span class="nt-lang-en">Shoes.</span><span class="nt-lang-fr">Des chaussures.</span><div class="msgtime">14:24</div></div><div class="bubble-right"><span class="nt-lang-en">I knew it.</span><span class="nt-lang-fr">Je le savais.</span><div class="msgtime">14:24</div></div><div class="bubble-left"><span class="nt-lang-en">Black or red?</span><span class="nt-lang-fr">Noires ou rouges ?</span><div class="msgtime">14:25</div></div><div class="bubble-right"><span class="nt-lang-en">Black.</span><span class="nt-lang-fr">Noires.</span><div class="msgtime">14:26</div></div><div class="bubble-left"><span class="nt-lang-en">You always say black.</span><span class="nt-lang-fr">Tu dis toujours noir.</span><div class="msgtime">14:26</div></div><div class="bubble-right"><span class="nt-lang-en">And I’m always right.</span><span class="nt-lang-fr">Et j’ai toujours raison.</span><div class="msgtime">14:27</div></div><div class="msgdate"><span class="nt-lang-en">13 days ago</span><span class="nt-lang-fr">Il y a 13 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Home?</span><span class="nt-lang-fr">T’es rentrée ?</span><div class="msgtime">22:06</div></div><div class="bubble-right"><span class="nt-lang-en">Just got in.</span><span class="nt-lang-fr">Je viens de rentrer.</span><div class="msgtime">22:08</div></div><div class="bubble-left"><span class="nt-lang-en">Good.</span><span class="nt-lang-fr">Bien.</span><div class="msgtime">22:09</div></div><div class="bubble-left"><span class="nt-lang-en">My feet are destroyed.</span><span class="nt-lang-fr">J’ai les pieds en miettes.</span><div class="msgtime">22:09</div></div><div class="bubble-right"><span class="nt-lang-en">Those shoes were your choice.</span><span class="nt-lang-fr">Ces chaussures, c’était ton choix.</span><div class="msgtime">22:10</div></div><div class="bubble-left"><span class="nt-lang-en">Don’t start.</span><span class="nt-lang-fr">Commence pas.</span><div class="msgtime">22:11</div></div><div class="bubble-right"><span class="nt-lang-en">😂</span><span class="nt-lang-fr">😂</span><div class="msgtime">22:11</div></div><div class="msgdate"><span class="nt-lang-en">8 days ago</span><span class="nt-lang-fr">Il y a 8 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Free Saturday?</span><span class="nt-lang-fr">Libre samedi ?</span><div class="msgtime">12:37</div></div><div class="bubble-right"><span class="nt-lang-en">Probably. Why?</span><span class="nt-lang-fr">Probablement. Pourquoi ?</span><div class="msgtime">12:41</div></div><div class="bubble-left"><span class="nt-lang-en">I want to go shopping.</span><span class="nt-lang-fr">J’ai envie d’aller faire les magasins.</span><div class="msgtime">12:42</div></div><div class="bubble-right"><span class="nt-lang-en">That explains the sudden interest in my schedule.</span><span class="nt-lang-fr">Ça explique cet intérêt soudain pour mon emploi du temps.</span><div class="msgtime">12:43</div></div><div class="bubble-left"><span class="nt-lang-en">So that’s a yes?</span><span class="nt-lang-fr">Donc c’est oui ?</span><div class="msgtime">12:44</div></div><div class="bubble-right"><span class="nt-lang-en">Fine 😭</span><span class="nt-lang-fr">D’accord 😭</span><div class="msgtime">12:45</div></div><div class="msgdate"><span class="nt-lang-en">Yesterday</span><span class="nt-lang-fr">Hier</span></div><div class="bubble-left"><span class="nt-lang-en">Important question.</span><span class="nt-lang-fr">Question importante.</span><div class="msgtime">15:47</div></div><div class="bubble-right"><span class="nt-lang-en">That already sounds dangerous.</span><span class="nt-lang-fr">Ça commence déjà mal.</span><div class="msgtime">15:48</div></div><div class="bubble-left"><span class="nt-lang-en">Black or silver?</span><span class="nt-lang-fr">Noires ou argentées ?</span><div class="msgtime">15:48</div></div><div class="bubble-right"><span class="nt-lang-en">Context would help.</span><span class="nt-lang-fr">Un peu de contexte aiderait.</span><div class="msgtime">15:49</div></div><div class="bubble-left"><span class="nt-lang-en">Earrings.</span><span class="nt-lang-fr">Des boucles d’oreilles.</span><div class="msgtime">15:49</div></div><div class="bubble-right"><span class="nt-lang-en">Silver.</span><span class="nt-lang-fr">Argentées.</span><div class="msgtime">15:50</div></div><div class="bubble-left"><span class="nt-lang-en">Wrong answer.</span><span class="nt-lang-fr">Mauvaise réponse.</span><div class="msgtime">15:50</div></div><div class="bubble-right"><span class="nt-lang-en">Then why did you ask me?</span><span class="nt-lang-fr">Alors pourquoi tu me demandes ?</span><div class="msgtime">15:51</div></div><div class="bubble-left"><span class="nt-lang-en">Emotional support.</span><span class="nt-lang-fr">Pour le soutien moral.</span><div class="msgtime">15:51</div></div><div class="bubble-left"><span class="nt-lang-en">WAIT</span><span class="nt-lang-fr">ATTENDS</span><div class="msgtime">16:03</div></div><div class="bubble-left"><span class="nt-lang-en">I found them.</span><span class="nt-lang-fr">Je les ai retrouvées.</span><div class="msgtime">16:03</div></div><div class="bubble-right"><span class="nt-lang-en">No way.</span><span class="nt-lang-fr">Pas possible.</span><div class="msgtime">16:04</div></div><div class="bubble-left"><span class="nt-lang-en">They were in the pocket of my black jacket.</span><span class="nt-lang-fr">Elles étaient dans la poche de ma veste noire.</span><div class="msgtime">16:04</div></div><div class="bubble-right"><span class="nt-lang-en">The jacket you checked three times?</span><span class="nt-lang-fr">La veste que tu as vérifiée trois fois ?</span><div class="msgtime">16:05</div></div><div class="bubble-left"><span class="nt-lang-en">We don’t need to talk about that.</span><span class="nt-lang-fr">On n’a pas besoin d’en parler.</span><div class="msgtime">16:05</div></div><div class="bubble-left"><span class="nt-lang-en">Send me the rooftop picture when you get a chance btw.</span><span class="nt-lang-fr">Envoie-moi la photo du rooftop quand tu as le temps au fait.</span><div class="msgtime">16:07</div></div><div class="bubble-right"><span class="nt-lang-en">The good one or the one where you look possessed?</span><span class="nt-lang-fr">La bonne ou celle où tu as l’air possédée ?</span><div class="msgtime">16:09</div></div><div class="bubble-left"><span class="nt-lang-en">Both.</span><span class="nt-lang-fr">Les deux.</span><div class="msgtime">16:10</div></div><div class="bubble-right"><span class="nt-lang-en">Fine.</span><span class="nt-lang-fr">D’accord.</span><div class="msgtime">16:11</div></div>
+</div>
+</section>
+<section class="page pg-mom">
+<div class="head"><div class="title"><span class="nt-lang-en">Mom</span><span class="nt-lang-fr">Maman</span></div><div class="sub"><span class="nt-lang-en">Local conversation</span><span class="nt-lang-fr">Conversation locale</span></div></div>
+<div class="body">
+<div class="msgdate"><span class="nt-lang-en">20 days ago</span><span class="nt-lang-fr">Il y a 20 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Don’t forget your grandmother’s birthday tomorrow.</span><span class="nt-lang-fr">N’oublie pas l’anniversaire de ta grand-mère demain.</span><div class="msgtime">10:03</div></div><div class="bubble-right"><span class="nt-lang-en">I didn’t forget.</span><span class="nt-lang-fr">J’ai pas oublié.</span><div class="msgtime">10:08</div></div><div class="bubble-left"><span class="nt-lang-en">I’m just reminding you.</span><span class="nt-lang-fr">Je te le rappelle, c’est tout.</span><div class="msgtime">10:09</div></div><div class="bubble-right"><span class="nt-lang-en">You reminded me yesterday too 😭</span><span class="nt-lang-fr">Tu me l’as rappelé hier aussi 😭</span><div class="msgtime">10:09</div></div><div class="bubble-left"><span class="nt-lang-en">Better twice than not at all.</span><span class="nt-lang-fr">Mieux vaut deux fois que pas du tout.</span><div class="msgtime">10:10</div></div><div class="bubble-right"><span class="nt-lang-en">Yes mom ❤️</span><span class="nt-lang-fr">Oui maman ❤️</span><div class="msgtime">10:11</div></div><div class="msgdate"><span class="nt-lang-en">11 days ago</span><span class="nt-lang-fr">Il y a 11 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Did you eat?</span><span class="nt-lang-fr">Tu as mangé ?</span><div class="msgtime">18:16</div></div><div class="bubble-right"><span class="nt-lang-en">Yes.</span><span class="nt-lang-fr">Oui.</span><div class="msgtime">18:23</div></div><div class="bubble-left"><span class="nt-lang-en">Something real?</span><span class="nt-lang-fr">Quelque chose de vrai ?</span><div class="msgtime">18:24</div></div><div class="bubble-right"><span class="nt-lang-en">Define real.</span><span class="nt-lang-fr">Définis « vrai ».</span><div class="msgtime">18:25</div></div><div class="bubble-left"><span class="nt-lang-en">Lena.</span><span class="nt-lang-fr">Lena.</span><div class="msgtime">18:25</div></div><div class="bubble-right"><span class="nt-lang-en">Pasta 😭</span><span class="nt-lang-fr">Des pâtes 😭</span><div class="msgtime">18:26</div></div><div class="bubble-left"><span class="nt-lang-en">Good.</span><span class="nt-lang-fr">Bien.</span><div class="msgtime">18:27</div></div><div class="msgdate"><span class="nt-lang-en">4 days ago</span><span class="nt-lang-fr">Il y a 4 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Did you take the containers I left for you?</span><span class="nt-lang-fr">Tu as pris les boîtes que je t’avais laissées ?</span><div class="msgtime">12:04</div></div><div class="bubble-right"><span class="nt-lang-en">Yes.</span><span class="nt-lang-fr">Oui.</span><div class="msgtime">12:16</div></div><div class="bubble-right"><span class="nt-lang-en">All six of them 😭</span><span class="nt-lang-fr">Les six 😭</span><div class="msgtime">12:16</div></div><div class="bubble-left"><span class="nt-lang-en">You always say you don’t have anything to put food in.</span><span class="nt-lang-fr">Tu dis toujours que tu n’as rien pour mettre à manger.</span><div class="msgtime">12:17</div></div><div class="bubble-right"><span class="nt-lang-en">I live alone, not with twelve people.</span><span class="nt-lang-fr">Je vis seule, pas avec douze personnes.</span><div class="msgtime">12:18</div></div><div class="bubble-left"><span class="nt-lang-en">You’ll thank me later.</span><span class="nt-lang-fr">Tu me remercieras plus tard.</span><div class="msgtime">12:18</div></div><div class="bubble-right"><span class="nt-lang-en">I’m sure I will ❤️</span><span class="nt-lang-fr">J’en suis sûre ❤️</span><div class="msgtime">12:19</div></div><div class="msgdate"><span class="nt-lang-en">Today</span><span class="nt-lang-fr">Aujourd’hui</span></div><div class="bubble-left"><span class="nt-lang-en">Are you awake?</span><span class="nt-lang-fr">Tu es réveillée ?</span><div class="msgtime">09:17</div></div><div class="bubble-right"><span class="nt-lang-en">Unfortunately.</span><span class="nt-lang-fr">Malheureusement.</span><div class="msgtime">09:26</div></div><div class="bubble-left"><span class="nt-lang-en">Very funny.</span><span class="nt-lang-fr">Très drôle.</span><div class="msgtime">09:27</div></div><div class="bubble-left"><span class="nt-lang-en">Are you coming Sunday?</span><span class="nt-lang-fr">Tu viens dimanche ?</span><div class="msgtime">09:28</div></div><div class="bubble-right"><span class="nt-lang-en">Yes. Around noon probably.</span><span class="nt-lang-fr">Oui. Vers midi probablement.</span><div class="msgtime">09:31</div></div><div class="bubble-left"><span class="nt-lang-en">Your aunt will be here too.</span><span class="nt-lang-fr">Ta tante sera là aussi.</span><div class="msgtime">09:32</div></div><div class="bubble-right"><span class="nt-lang-en">Now you’re making me reconsider.</span><span class="nt-lang-fr">Là tu me donnes envie de changer d’avis.</span><div class="msgtime">09:33</div></div><div class="bubble-left"><span class="nt-lang-en">Lena.</span><span class="nt-lang-fr">Lena.</span><div class="msgtime">09:34</div></div><div class="bubble-right"><span class="nt-lang-en">I’m joking 😭</span><span class="nt-lang-fr">Je plaisante 😭</span><div class="msgtime">09:34</div></div><div class="bubble-left"><span class="nt-lang-en">Alright. Have a good day ❤️</span><span class="nt-lang-fr">D’accord. Bonne journée ❤️</span><div class="msgtime">09:39</div></div><div class="bubble-right"><span class="nt-lang-en">You too ❤️</span><span class="nt-lang-fr">Toi aussi ❤️</span><div class="msgtime">09:41</div></div>
+</div>
+</section>
+<section class="page pg-alex">
+<div class="head"><div class="title">Alex</div><div class="sub"><span class="nt-lang-en">Local conversation</span><span class="nt-lang-fr">Conversation locale</span></div></div>
+<div class="body">
+<div class="msgdate"><span class="nt-lang-en">18 days ago</span><span class="nt-lang-fr">Il y a 18 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Are you online tonight?</span><span class="nt-lang-fr">Tu joues ce soir ?</span><div class="msgtime">19:34</div></div><div class="bubble-right"><span class="nt-lang-en">Maybe later.</span><span class="nt-lang-fr">Peut-être plus tard.</span><div class="msgtime">19:40</div></div><div class="bubble-left"><span class="nt-lang-en">That means no.</span><span class="nt-lang-fr">Ça veut dire non.</span><div class="msgtime">19:41</div></div><div class="bubble-right"><span class="nt-lang-en">It means maybe later.</span><span class="nt-lang-fr">Ça veut dire peut-être plus tard.</span><div class="msgtime">19:42</div></div><div class="bubble-left"><span class="nt-lang-en">I know you too well.</span><span class="nt-lang-fr">Je te connais trop bien.</span><div class="msgtime">19:42</div></div><div class="bubble-right"><span class="nt-lang-en">Unfortunately.</span><span class="nt-lang-fr">Malheureusement.</span><div class="msgtime">19:43</div></div><div class="msgdate"><span class="nt-lang-en">10 days ago</span><span class="nt-lang-fr">Il y a 10 jours</span></div><div class="bubble-left"><span class="nt-lang-en">I finally fixed my keyboard.</span><span class="nt-lang-fr">J’ai enfin réparé mon clavier.</span><div class="msgtime">16:17</div></div><div class="bubble-right"><span class="nt-lang-en">What was wrong with it?</span><span class="nt-lang-fr">Il avait quoi ?</span><div class="msgtime">16:19</div></div><div class="bubble-left"><span class="nt-lang-en">Nothing.</span><span class="nt-lang-fr">Rien.</span><div class="msgtime">16:20</div></div><div class="bubble-left"><span class="nt-lang-en">I had the wrong layout selected.</span><span class="nt-lang-fr">J’avais sélectionné la mauvaise disposition.</span><div class="msgtime">16:20</div></div><div class="bubble-right"><span class="nt-lang-en">Incredible.</span><span class="nt-lang-fr">Incroyable.</span><div class="msgtime">16:21</div></div><div class="bubble-left"><span class="nt-lang-en">Don’t.</span><span class="nt-lang-fr">Commence pas.</span><div class="msgtime">16:21</div></div><div class="bubble-right"><span class="nt-lang-en">Defeated by keyboard settings. Impressive.</span><span class="nt-lang-fr">Vaincu par les paramètres du clavier. Impressionnant.</span><div class="msgtime">16:22</div></div><div class="bubble-left"><span class="nt-lang-en">I’m blocking you.</span><span class="nt-lang-fr">Je te bloque.</span><div class="msgtime">16:23</div></div><div class="msgdate"><span class="nt-lang-en">5 days ago</span><span class="nt-lang-fr">Il y a 5 jours</span></div><div class="bubble-left"><span class="nt-lang-en">I’m ordering food.</span><span class="nt-lang-fr">Je commande à manger.</span><div class="msgtime">20:14</div></div><div class="bubble-right"><span class="nt-lang-en">Congratulations.</span><span class="nt-lang-fr">Félicitations.</span><div class="msgtime">20:15</div></div><div class="bubble-left"><span class="nt-lang-en">Help me choose.</span><span class="nt-lang-fr">Aide-moi à choisir.</span><div class="msgtime">20:15</div></div><div class="bubble-right"><span class="nt-lang-en">Pizza.</span><span class="nt-lang-fr">Pizza.</span><div class="msgtime">20:16</div></div><div class="bubble-left"><span class="nt-lang-en">I had pizza yesterday.</span><span class="nt-lang-fr">J’ai mangé une pizza hier.</span><div class="msgtime">20:16</div></div><div class="bubble-right"><span class="nt-lang-en">Then why are you asking me?</span><span class="nt-lang-fr">Alors pourquoi tu me demandes ?</span><div class="msgtime">20:17</div></div><div class="bubble-left"><span class="nt-lang-en">I expected creativity.</span><span class="nt-lang-fr">Je m’attendais à un peu de créativité.</span><div class="msgtime">20:18</div></div><div class="bubble-right"><span class="nt-lang-en">From me? On a Sunday?</span><span class="nt-lang-fr">De ma part ? Un dimanche ?</span><div class="msgtime">20:18</div></div><div class="bubble-left"><span class="nt-lang-en">Fair point.</span><span class="nt-lang-fr">Pas faux.</span><div class="msgtime">20:19</div></div><div class="bubble-left"><span class="nt-lang-en">Thai it is.</span><span class="nt-lang-fr">Ce sera thaï.</span><div class="msgtime">20:20</div></div><div class="bubble-right"><span class="nt-lang-en">Proud of you.</span><span class="nt-lang-fr">Fière de toi.</span><div class="msgtime">20:20</div></div><div class="msgdate"><span class="nt-lang-en">112 days ago</span><span class="nt-lang-fr">1Il y a 12 jours</span></div><div class="bubble-left"><span class="nt-lang-en">You finished it?</span><span class="nt-lang-fr">Tu l’as finie ?</span><div class="msgtime">21:08</div></div><div class="bubble-right"><span class="nt-lang-en">The show?</span><span class="nt-lang-fr">La série ?</span><div class="msgtime">21:10</div></div><div class="bubble-left"><span class="nt-lang-en">Obviously.</span><span class="nt-lang-fr">Évidemment.</span><div class="msgtime">21:10</div></div><div class="bubble-right"><span class="nt-lang-en">Two episodes left.</span><span class="nt-lang-fr">Il me reste deux épisodes.</span><div class="msgtime">21:11</div></div><div class="bubble-left"><span class="nt-lang-en">Then why are you talking to me?</span><span class="nt-lang-fr">Alors pourquoi tu me parles ?</span><div class="msgtime">21:11</div></div><div class="bubble-right"><span class="nt-lang-en">Because apparently friendship has obligations.</span><span class="nt-lang-fr">Parce qu’apparemment l’amitié implique des obligations.</span><div class="msgtime">21:12</div></div><div class="bubble-left"><span class="nt-lang-en">Finish it. Then we can argue.</span><span class="nt-lang-fr">Finis-la. Après on pourra se disputer.</span><div class="msgtime">21:12</div></div><div class="bubble-right"><span class="nt-lang-en">I already know you’re wrong.</span><span class="nt-lang-fr">Je sais déjà que tu as tort.</span><div class="msgtime">21:14</div></div><div class="bubble-left"><span class="nt-lang-en">You don’t even know what I think yet.</span><span class="nt-lang-fr">Tu ne sais même pas encore ce que j’en pense.</span><div class="msgtime">21:15</div></div><div class="bubble-right"><span class="nt-lang-en">Doesn’t matter.</span><span class="nt-lang-fr">Peu importe.</span><div class="msgtime">21:15</div></div><div class="bubble-left"><span class="nt-lang-en">Incredible.</span><span class="nt-lang-fr">Incroyable.</span><div class="msgtime">21:16</div></div><div class="bubble-right"><span class="nt-lang-en">I’ll finish it tomorrow.</span><span class="nt-lang-fr">Je la finis demain.</span><div class="msgtime">21:17</div></div><div class="bubble-left"><span class="nt-lang-en">Screenshotting this.</span><span class="nt-lang-fr">Je fais une capture de ça.</span><div class="msgtime">21:18</div></div><div class="bubble-right"><span class="nt-lang-en">You have issues.</span><span class="nt-lang-fr">T’as un problème.</span><div class="msgtime">21:18</div></div>
+</div>
+</section>
+<section class="page pg-mrlouis">
+<div class="head"><div class="title">Mr Louis</div><div class="sub"><span class="nt-lang-en">Local conversation</span><span class="nt-lang-fr">Conversation locale</span></div></div>
+<div class="body">
+<div class="msgdate"><span class="nt-lang-en">23 days ago</span><span class="nt-lang-fr">Il y a 23 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Hello Lena. I received your contact details from Mr Bernard.</span><span class="nt-lang-fr">Bonjour Lena. M. Bernard m’a transmis vos coordonnées.</span><div class="msgtime">09:12</div></div><div class="bubble-right"><span class="nt-lang-en">Hello Mr Louis. Yes, he mentioned that you might contact me.</span><span class="nt-lang-fr">Bonjour M. Louis. Oui, il m’avait indiqué que vous pourriez me contacter.</span><div class="msgtime">09:18</div></div><div class="bubble-left"><span class="nt-lang-en">We would like someone to review our current security setup.</span><span class="nt-lang-fr">Nous aimerions faire vérifier notre configuration de sécurité actuelle.</span><div class="msgtime">09:20</div></div><div class="bubble-right"><span class="nt-lang-en">Of course. If you send me a brief overview of your systems and requirements, I can prepare an estimate.</span><span class="nt-lang-fr">Bien sûr. Si vous m’envoyez un aperçu de vos systèmes et de vos besoins, je pourrai préparer un devis.</span><div class="msgtime">09:24</div></div><div class="bubble-left"><span class="nt-lang-en">I’ll send that this afternoon. Thank you.</span><span class="nt-lang-fr">Je vous envoie ça cet après-midi. Merci.</span><div class="msgtime">09:27</div></div><div class="msgdate"><span class="nt-lang-en">16 days ago</span><span class="nt-lang-fr">Il y a 16 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Hello. We’ve approved the estimate.</span><span class="nt-lang-fr">Bonjour. Nous avons validé le devis.</span><div class="msgtime">15:04</div></div><div class="bubble-right"><span class="nt-lang-en">Perfect. I’ll send you the checklist before I start.</span><span class="nt-lang-fr">Parfait. Je vous enverrai la liste des éléments nécessaires avant de commencer.</span><div class="msgtime">15:11</div></div><div class="bubble-left"><span class="nt-lang-en">Very good. Thank you.</span><span class="nt-lang-fr">Très bien. Merci.</span><div class="msgtime">15:13</div></div><div class="msgdate"><span class="nt-lang-en">7 days ago</span><span class="nt-lang-fr">Il y a 7 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Hello Lena. We received the preliminary report. Thank you.</span><span class="nt-lang-fr">Bonjour Lena. Nous avons bien reçu le rapport préliminaire. Merci.</span><div class="msgtime">14:11</div></div><div class="bubble-right"><span class="nt-lang-en">No problem. Let me know if you want me to clarify anything.</span><span class="nt-lang-fr">Aucun problème. Dites-moi si vous souhaitez que je précise certains points.</span><div class="msgtime">14:18</div></div><div class="bubble-left"><span class="nt-lang-en">I have a question about the password policy recommendation.</span><span class="nt-lang-fr">J’ai une question concernant la recommandation sur la politique des mots de passe.</span><div class="msgtime">14:22</div></div><div class="bubble-left"><span class="nt-lang-en">Would this require everyone to change theirs immediately?</span><span class="nt-lang-fr">Est-ce que cela obligerait tout le monde à changer le sien immédiatement ?</span><div class="msgtime">14:23</div></div><div class="bubble-right"><span class="nt-lang-en">Not necessarily. I’d recommend applying the new policy at the next required password change.</span><span class="nt-lang-fr">Pas nécessairement. Je recommande d’appliquer la nouvelle politique lors du prochain changement de mot de passe obligatoire.</span><div class="msgtime">14:27</div></div><div class="bubble-right"><span class="nt-lang-en">It’ll be less disruptive that way.</span><span class="nt-lang-fr">Ce sera moins perturbant comme ça.</span><div class="msgtime">14:28</div></div><div class="bubble-left"><span class="nt-lang-en">That makes sense. Thank you.</span><span class="nt-lang-fr">Ça me paraît logique. Merci.</span><div class="msgtime">14:30</div></div><div class="msgdate"><span class="nt-lang-en">3 days ago</span><span class="nt-lang-fr">Il y a 3 jours</span></div><div class="bubble-left"><span class="nt-lang-en">Good morning. Are you available for a quick call this afternoon?</span><span class="nt-lang-fr">Bonjour. Êtes-vous disponible pour un court appel cet après-midi ?</span><div class="msgtime">09:36</div></div><div class="bubble-right"><span class="nt-lang-en">Yes. Any time after 2 works for me.</span><span class="nt-lang-fr">Oui. Je suis disponible à partir de 14 h.</span><div class="msgtime">09:43</div></div><div class="bubble-left"><span class="nt-lang-en">2:30?</span><span class="nt-lang-fr">14 h 30 ?</span><div class="msgtime">09:45</div></div><div class="bubble-right"><span class="nt-lang-en">Perfect.</span><span class="nt-lang-fr">Parfait.</span><div class="msgtime">09:46</div></div><div class="bubble-left"><span class="nt-lang-en">Thank you.</span><span class="nt-lang-fr">Merci.</span><div class="msgtime">09:47</div></div><div class="msgdate"><span class="nt-lang-en">Today</span><span class="nt-lang-fr">Aujourd’hui</span></div><div class="bubble-left"><span class="nt-lang-en">Hello Lena. Sorry to bother you this morning. Do you have a minute?</span><span class="nt-lang-fr">Bonjour Lena. Désolé de vous déranger ce matin. Vous avez une minute ?</span><div class="msgtime">10:42</div></div><div class="bubble-right"><span class="nt-lang-en">Hello Mr Louis. Yes, no problem.</span><span class="nt-lang-fr">Bonjour M. Louis. Oui, aucun problème.</span><div class="msgtime">10:47</div></div><div class="bubble-left"><span class="nt-lang-en">Two employees are being asked to verify their accounts again this morning. Is that expected?</span><span class="nt-lang-fr">Deux employés doivent à nouveau vérifier leur compte ce matin. C’est normal ?</span><div class="msgtime">10:48</div></div><div class="bubble-right"><span class="nt-lang-en">Yes. I enabled mandatory multi-factor authentication for the accounts that hadn’t completed enrollment yet.</span><span class="nt-lang-fr">Oui. J’ai activé l’authentification multifacteur obligatoire pour les comptes qui n’avaient pas encore terminé leur inscription.</span><div class="msgtime">10:51</div></div><div class="bubble-left"><span class="nt-lang-en">Perfect. I just wanted to make sure it wasn’t an error.</span><span class="nt-lang-fr">Parfait. Je voulais simplement vérifier que ce n’était pas une erreur.</span><div class="msgtime">10:52</div></div><div class="bubble-right"><span class="nt-lang-en">No, everything is working as intended.</span><span class="nt-lang-fr">Non, tout fonctionne comme prévu.</span><div class="msgtime">10:53</div></div><div class="bubble-left"><span class="nt-lang-en">And the old contractor accounts?</span><span class="nt-lang-fr">Et les comptes des anciens prestataires ?</span><div class="msgtime">10:55</div></div><div class="bubble-right"><span class="nt-lang-en">Disabled. I also removed the old remote access permissions.</span><span class="nt-lang-fr">Désactivés. J’ai également supprimé les anciennes autorisations d’accès à distance.</span><div class="msgtime">10:58</div></div><div class="bubble-left"><span class="nt-lang-en">Excellent. Thank you.</span><span class="nt-lang-fr">Excellent. Merci.</span><div class="msgtime">11:00</div></div><div class="bubble-right"><span class="nt-lang-en">You’re welcome. I’ll send you the final security report on Monday.</span><span class="nt-lang-fr">Avec plaisir. Je vous enverrai le rapport de sécurité final lundi.</span><div class="msgtime">11:01</div></div><div class="bubble-left"><span class="nt-lang-en">Perfect. Have a good weekend.</span><span class="nt-lang-fr">Parfait. Bon week-end.</span><div class="msgtime">11:02</div></div><div class="bubble-right"><span class="nt-lang-en">You too.</span><span class="nt-lang-fr">À vous aussi.</span><div class="msgtime">11:03</div></div>
+</div>
+</section>
+
+<!-- PHONE -->
+<section class="page pg-phone-recent">
+<div class="head"><div class="title"><span class="nt-lang-en">Phone</span><span class="nt-lang-fr">Téléphone</span></div><div class="sub"><span class="nt-lang-en">No service</span><span class="nt-lang-fr">Aucun service</span> <span class="nt-lang-en">· local data only</span><span class="nt-lang-fr">· données locales uniquement</span></div></div>
+<div class="body tabs">
+<div class="row"><div class="avatar">👩</div><div class="grow"><div class="rtitle">Maya</div><div class="preview"><span class="nt-lang-en">Incoming · 12 min</span><span class="nt-lang-fr">Entrant · 12 min</span></div></div><div class="meta">13:42</div></div>
+<div class="row"><div class="avatar">❓</div><div class="grow"><div class="rtitle"><span class="nt-lang-en">Unknown Number</span><span class="nt-lang-fr">Numéro inconnu</span></div><div class="preview"><span class="nt-lang-en">Missed call</span><span class="nt-lang-fr">Appel manqué</span></div></div><div class="meta">09:11</div></div>
+<div class="row"><div class="avatar">💼</div><div class="grow"><div class="rtitle"><span class="nt-lang-en">Office</span><span class="nt-lang-fr">Bureau</span></div><div class="preview"><span class="nt-lang-en">Outgoing · 4 min</span><span class="nt-lang-fr">Sortant · 4 min</span></div></div><div class="meta"><span class="nt-lang-en">Yesterday</span><span class="nt-lang-fr">Hier</span></div></div>
+</div>
+<div class="tabs"><label class="active" for="nt20-phone-recent"><span class="nt-lang-en">Recent</span><span class="nt-lang-fr">Récents</span></label><label for="nt20-phone-contacts"><span class="nt-lang-en">Contacts</span><span class="nt-lang-fr">Contacts</span></label><label for="nt20-phone-keypad"><span class="nt-lang-en">Keypad</span><span class="nt-lang-fr">Clavier</span></label></div>
+</section>
+<section class="page pg-phone-contacts">
+<div class="head"><div class="title"><span class="nt-lang-en">Phone</span><span class="nt-lang-fr">Téléphone</span></div><div class="sub"><span class="nt-lang-en">No service</span><span class="nt-lang-fr">Aucun service</span> <span class="nt-lang-en">· local data only</span><span class="nt-lang-fr">· données locales uniquement</span></div></div>
+<div class="body tabs">
+<div class="row"><div class="avatar">👩</div><div class="grow"><div class="rtitle">Maya Chen</div><div class="preview"><span class="nt-lang-en">Mobile · +33 6 44 18 27 91</span><span class="nt-lang-fr">Portable · +33 6 44 18 27 91</span></div></div></div>
+<div class="row"><div class="avatar">👨</div><div class="grow"><div class="rtitle">Alex Martin</div><div class="preview"><span class="nt-lang-en">Mobile · +33 6 72 31 84 05</span><span class="nt-lang-fr">Portable · +33 6 72 31 84 05</span></div></div></div>
+<div class="row"><div class="avatar">🏠</div><div class="grow"><div class="rtitle"><span class="nt-lang-en">Landlord</span><span class="nt-lang-fr">Propriétaire</span></div><div class="preview"><span class="nt-lang-en">Home · +33 4 00 00 00 00</span><span class="nt-lang-fr">Domicile · +33 4 00 00 00 00</span></div></div></div>
+</div>
+<div class="tabs"><label for="nt20-phone-recent"><span class="nt-lang-en">Recent</span><span class="nt-lang-fr">Récents</span></label><label class="active" for="nt20-phone-contacts"><span class="nt-lang-en">Contacts</span><span class="nt-lang-fr">Contacts</span></label><label for="nt20-phone-keypad"><span class="nt-lang-en">Keypad</span><span class="nt-lang-fr">Clavier</span></label></div>
+</section>
+<section class="page pg-phone-keypad">
+<div class="head"><div class="title"><span class="nt-lang-en">Phone</span><span class="nt-lang-fr">Téléphone</span></div><div class="sub"><span class="nt-lang-en">No service</span><span class="nt-lang-fr">Aucun service</span></div></div>
+<div class="body tabs">
+<div class="card"><div class="card-title"><span class="nt-lang-en">No service</span><span class="nt-lang-fr">Aucun service</span></div><div class="card-sub"><span class="nt-lang-en">Calls cannot be placed from this device.</span><span class="nt-lang-fr">Impossible de passer des appels depuis cet appareil.</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(3,62px);gap:12px;justify-content:center;margin-top:18px">
+<div class="card">1</div><div class="card">2</div><div class="card">3</div>
+<div class="card">4</div><div class="card">5</div><div class="card">6</div>
+<div class="card">7</div><div class="card">8</div><div class="card">9</div>
+<div class="card">*</div><div class="card">0</div><div class="card">#</div>
+</div>
+</div>
+<div class="tabs"><label for="nt20-phone-recent"><span class="nt-lang-en">Recent</span><span class="nt-lang-fr">Récents</span></label><label for="nt20-phone-contacts"><span class="nt-lang-en">Contacts</span><span class="nt-lang-fr">Contacts</span></label><label class="active" for="nt20-phone-keypad"><span class="nt-lang-en">Keypad</span><span class="nt-lang-fr">Clavier</span></label></div>
+</section>
+<!-- GALLERY -->
+<section class="page pg-gallery">
+<div class="head"><div class="title"><span class="nt-lang-en">Gallery</span><span class="nt-lang-fr">Galerie</span></div><div class="sub"><span class="nt-lang-en">18 photos · local storage</span><span class="nt-lang-fr">18 photos · stockage local</span></div></div>
+<div class="body">
+<div class="section"><span class="nt-lang-en">Recent</span><span class="nt-lang-fr">Récents</span></div>
+<div class="gallery-grid">
+<label class="thumb p1" for="nt20-photo1" style="background-image:url('../photos/DCIM/Camera/IMG_20260814_184736.jpg');background-size:cover;background-position:center;"><span><span class="nt-lang-en">14 Aug</span><span class="nt-lang-fr">14 août</span></span></label>
+<label class="thumb p2" for="nt20-photo2"><span><span class="nt-lang-en">Night</span><span class="nt-lang-fr">Nuit</span></span></label>
+<div class="thumb p3"><span><span class="nt-lang-en">Park</span><span class="nt-lang-fr">Parc</span></span></div>
+<div class="thumb p4"><span><span class="nt-lang-en">Coffee</span><span class="nt-lang-fr">Café</span></span></div>
+<div class="thumb p5"><span><span class="nt-lang-en">Concert</span><span class="nt-lang-fr">Concert</span></span></div>
+<div class="thumb p6"><span><span class="nt-lang-en">Train</span><span class="nt-lang-fr">Train</span></span></div>
+</div>
+</div>
+</section>
+<!-- PHOTO 1 — full-screen viewer -->
+<section class="page pg-photo1" style="background:#000;">
+<div class="photo-viewer" style="background-image:url('../photos/DCIM/Camera/IMG_20260814_184736.jpg');"></div>
+<div class="viewer-top">
+<div class="viewer-name">IMG_20260814_184736.jpg</div>
+<label class="more-btn" for="nt20-photo1-menu" title="More options">⋮</label>
+</div>
+<!-- Clicking outside the menu returns to the photo -->
+<label class="photo-menu-scrim" for="nt20-photo1"></label>
+<div class="photo-more-menu">
+<label for="nt20-error-overlay">
+<span class="menu-icon">✎</span><span><span class="nt-lang-en">Edit</span><span class="nt-lang-fr">Modifier</span></span>
+</label>
+<label for="nt20-error-overlay">
+<span class="menu-icon">▣</span><span><span class="nt-lang-en">Set as wallpaper</span><span class="nt-lang-fr">Définir comme fond d’écran</span></span>
+</label>
+<label for="nt20-photo1-details">
+<span class="menu-icon">ⓘ</span><span><span class="nt-lang-en">Details</span><span class="nt-lang-fr">Détails</span></span>
+</label>
+</div>
+</section>
+<!-- PHOTO 1 — details -->
+<section class="page pg-photo1-details" style="background:#050608;">
+<div class="details-photo-bg" style="background-image:url('../photos/DCIM/Camera/IMG_20260814_184736.jpg');"></div>
+<div class="details-sheet">
+<div class="sheet-handle"></div>
+<div class="details-titlebar">
+<div class="details-title"><span class="nt-lang-en">Details</span><span class="nt-lang-fr">Détails</span></div>
+<label class="details-close" for="nt20-photo1">×</label>
+</div>
+<div class="details-file">
+<div class="details-thumb" style="background-image:url('../photos/DCIM/Camera/IMG_20260814_184736.jpg');"></div>
+<div>
+<div class="details-filename">IMG_20260814_184736.jpg</div>
+<div class="details-type"><span class="nt-lang-en">JPEG image</span><span class="nt-lang-fr">Image JPEG</span></div>
+</div>
+</div>
+<div class="detail-row">
+<div class="detail-key"><span class="nt-lang-en">Date taken</span><span class="nt-lang-fr">Date de prise</span></div>
+<div class="detail-value"><span class="nt-lang-en">14 Aug 2026 · 18:47:36</span><span class="nt-lang-fr">14 août 2026 · 18:47:36</span></div>
+</div>
+<div class="detail-row">
+<div class="detail-key"><span class="nt-lang-en">Album</span><span class="nt-lang-fr">Album</span></div>
+<div class="detail-value"><span class="nt-lang-en">Camera</span><span class="nt-lang-fr">Appareil photo</span></div>
+</div>
+<div class="detail-row">
+<div class="detail-key"><span class="nt-lang-en">Folder</span><span class="nt-lang-fr">Dossier</span></div>
+<div class="detail-value">/DCIM/Camera/</div>
+</div>
+<div class="detail-row">
+<div class="detail-key"><span class="nt-lang-en">File name</span><span class="nt-lang-fr">Nom du fichier</span></div>
+<div class="detail-value">IMG_20260814_184736.jpg</div>
+</div>
+<div class="detail-row">
+<div class="detail-key"><span class="nt-lang-en">Location</span><span class="nt-lang-fr">Localisation</span></div>
+<div class="detail-value"><span class="nt-lang-en">No location data</span><span class="nt-lang-fr">Aucune donnée de localisation</span></div>
+</div>
+</div>
+</section>
+<section class="page pg-photo2">
+<div class="head"><div class="title">IMG_2041</div><div class="sub"><span class="nt-lang-en">21 Sep · 23:17</span><span class="nt-lang-fr">21 sept. · 23:17</span></div></div>
+<div class="body">
+<div class="fullphoto p2"><span class="nt-lang-en">Another image could hide a visual clue.</span><span class="nt-lang-fr">Une autre image pourrait cacher un indice visuel.</span></div>
+<div class="photo-info"><span class="nt-lang-en">Album:</span><span class="nt-lang-fr">Album :</span> <span class="nt-lang-en">Camera Roll</span><span class="nt-lang-fr">Pellicule</span><br/><span class="nt-lang-en">Location data: removed</span><span class="nt-lang-fr">Données de localisation : supprimées</span></div>
+</div>
+</section>
+<!-- OTHERS -->
+<section class="page pg-camera">
+<div class="head"><div class="title"><span class="nt-lang-en">Camera</span><span class="nt-lang-fr">Appareil photo</span></div><div class="sub"><span class="nt-lang-en">Hardware unavailable</span><span class="nt-lang-fr">Matériel indisponible</span></div></div>
+<div class="body"><div class="cam-error"><div class="warn">⚠️</div><div class="cam-title"><span class="nt-lang-en">Camera unavailable</span><span class="nt-lang-fr">Appareil photo indisponible</span></div><div class="cam-text"><span class="nt-lang-en">The camera module failed to initialize.</span><span class="nt-lang-fr">Le module de l’appareil photo n’a pas pu démarrer.</span><br/><br/><span class="nt-lang-en">No active sensor was detected. The hardware appears damaged or disconnected.</span><span class="nt-lang-fr">Aucun capteur actif n’a été détecté. Le matériel semble endommagé ou déconnecté.</span></div></div></div>
+</section>
+<section class="page pg-weather">
+<div class="head"><div class="title"><span class="nt-lang-en">Weather</span><span class="nt-lang-fr">Météo</span></div><div class="sub"><span class="nt-lang-en">Cached data</span><span class="nt-lang-fr">Données en cache</span></div></div>
+<div class="body"><div class="card"><div class="card-title"><span class="nt-lang-en">Last updated yesterday · 18:42</span><span class="nt-lang-fr">Dernière mise à jour hier · 18:42</span></div><div class="card-sub"><span class="nt-lang-en">No network connection. Showing cached information.</span><span class="nt-lang-fr">Aucune connexion réseau. Affichage des informations en cache.</span></div></div><div style="text-align:center;padding:24px 0"><div style="font-size:30px">☀️</div><div style="font-size:60px;font-weight:250">21°</div><div style="font-size:13px;opacity:.62"><span class="nt-lang-en">Clear · cached</span><span class="nt-lang-fr">Dégagé · en cache</span></div></div></div>
+</section>
+<section class="page pg-settings">
+<div class="head"><div class="title"><span class="nt-lang-en">Settings</span><span class="nt-lang-fr">Paramètres</span></div><div class="sub"><span class="nt-lang-en">Device status</span><span class="nt-lang-fr">État de l’appareil</span></div></div>
+<div class="body">
+<div class="card"><div class="card-title"><span class="nt-lang-en">Mobile network</span><span class="nt-lang-fr">Réseau mobile</span></div><div class="card-sub"><span class="nt-lang-en">No SIM</span><span class="nt-lang-fr">Aucune SIM</span> · <span class="nt-lang-en">No service</span><span class="nt-lang-fr">Aucun service</span></div></div>
+<div class="card"><div class="card-title">Wi‑Fi</div><div class="card-sub"><span class="nt-lang-en">Disconnected</span><span class="nt-lang-fr">Déconnecté</span></div></div>
+<div class="card"><div class="card-title"><span class="nt-lang-en">Battery</span><span class="nt-lang-fr">Batterie</span></div><div class="card-sub">87%</div></div>
+<div class="lang-setting">
+<div class="lang-setting-label">
+<span class="nt-lang-en">Language</span>
+<span class="nt-lang-fr">Langue</span>
+</div>
+<div class="lang-choice">
+<label for="nt20-lang-en">English</label>
+<label for="nt20-lang-fr">Français</label>
+</div>
+</div>
+</div>
+</section>
+<section class="page pg-notes">
+<div class="head"><div class="title"><span class="nt-lang-en">Notes</span><span class="nt-lang-fr">Notes</span></div><div class="sub"><span class="nt-lang-en">3 local notes</span><span class="nt-lang-fr">3 notes locales</span></div></div>
+<div class="body">
+<div class="note"><div class="n-title"><span class="nt-lang-en">Groceries</span><span class="nt-lang-fr">Courses</span></div><div class="n-text"><span class="nt-lang-en">Milk, pasta, coffee, tomatoes, dish soap.</span><span class="nt-lang-fr">Lait, pâtes, café, tomates, liquide vaisselle.</span></div></div>
+<div class="note"><div class="n-title"><span class="nt-lang-en">Things to remember</span><span class="nt-lang-fr">À ne pas oublier</span></div><div class="n-text"><span class="nt-lang-en">Call Maya back. Pick up the parcel. Charge headphones.</span><span class="nt-lang-fr">Rappeler Maya. Récupérer le colis. Recharger les écouteurs.</span></div></div>
+<div class="note"><div class="n-title"><span class="nt-lang-en">Untitled</span><span class="nt-lang-fr">Sans titre</span></div><div class="n-text"><span class="nt-lang-en">Old station — 19:00. Bring the folder.</span><span class="nt-lang-fr">Ancienne gare — 19:00. Prendre le dossier.</span></div></div>
+</div>
+</section>
+
+<!-- VOICE RECORDER -->
+<section class="page pg-recorder">
+<div class="head"><div class="title"><span class="nt-lang-en">Voice Recorder</span><span class="nt-lang-fr">Dictaphone</span></div>
+<div class="sub"><span class="nt-lang-en">1 recording · local storage</span><span class="nt-lang-fr">1 enregistrement · stockage local</span></div></div>
+<div class="body">
+<div class="recorder-hero">
+<label class="record-circle" for="nt20-error-overlay">●</label>
+<div class="rec-status"><span class="nt-lang-en">Microphone unavailable</span><span class="nt-lang-fr">Microphone indisponible</span></div>
+<div class="rec-status-sub"><span class="nt-lang-en">New recordings cannot be created on this device.</span><span class="nt-lang-fr">Impossible de créer de nouveaux enregistrements sur cet appareil.</span></div>
+</div>
+<label class="recording-row" for="nt20-recording1">
+<span class="recording-icon">▶</span>
+<span><span class="recording-name">Recording_20260712_224153</span>
+<span class="recording-meta"><span class="nt-lang-en">12 Jul 2026 · 22:41</span><span class="nt-lang-fr">12 juil. 2026 · 22:41</span></span></span>
+<span class="recording-duration">0:15</span>
+</label>
+</div>
+</section>
+
+<!-- RECORDING DETAIL -->
+<section class="page pg-recording1">
+<div class="head"><div class="title"><span class="nt-lang-en">Recording</span><span class="nt-lang-fr">Enregistrement</span></div>
+<div class="sub"><span class="nt-lang-en">Voice Recorder</span><span class="nt-lang-fr">Dictaphone</span></div></div>
+<div class="body">
+<div class="voice-detail-card">
+<div class="voice-file-name">Recording_20260712_224153.flac</div>
+<div class="voice-file-meta"><span class="nt-lang-en">12 Jul 2026 · 22:41 · 0:15</span><span class="nt-lang-fr">12 juil. 2026 · 22:41 · 0:15</span></div>
+<audio class="audio-en" controls="" preload="metadata" src="../audio/VoiceRecorder/en-en/Recording_20260712_224153.flac"></audio>
+<audio class="audio-fr" controls="" preload="metadata" src="../audio/VoiceRecorder/fr-fr/Recording_20260712_224153.flac"></audio>
+<div class="voice-note-hint"><span class="nt-lang-en">Stored locally · original recording</span><span class="nt-lang-fr">Stocké localement · enregistrement original</span></div>
+</div>
+</div>
+</section>
+
+<section class="page pg-recents">
+<div class="head"><div class="title"><span class="nt-lang-en">Recent apps</span><span class="nt-lang-fr">Applications récentes</span></div><div class="sub"><span class="nt-lang-en">Prototype task switcher</span><span class="nt-lang-fr">Sélecteur d’applications prototype</span></div></div>
+<div class="body">
+<label class="recent-card" for="nt20-messages"><div class="name"><span class="nt-lang-en">💬 Messages</span><span class="nt-lang-fr">💬 Messages</span></div><div class="mini"><span class="nt-lang-en">Maya — Are we still meeting at 7?</span><span class="nt-lang-fr">Maya — On se retrouve toujours à 19 h ?</span></div></label>
+<label class="recent-card" for="nt20-gallery"><div class="name"><span class="nt-lang-en">🖼️ Gallery</span><span class="nt-lang-fr">🖼️ Galerie</span></div><div class="mini"><span class="nt-lang-en">18 photos ·</span><span class="nt-lang-fr">18 photos ·</span> <span class="nt-lang-en">Camera Roll</span><span class="nt-lang-fr">Pellicule</span></div></label>
+<label class="recent-card" for="nt20-phone-recent"><div class="name"><span class="nt-lang-en">📞 Phone</span><span class="nt-lang-fr">📞 Téléphone</span></div><div class="mini"><span class="nt-lang-en">No service</span><span class="nt-lang-fr">Aucun service</span> <span class="nt-lang-en">· Recent calls stored locally</span><span class="nt-lang-fr">· Appels récents stockés localement</span></div></label>
+</div>
+</section>
+<!-- REUSABLE ERROR TEMPLATE: every inaccessible action can point to nt20-error-overlay -->
+<div class="error-template">
+<div class="error-dialog">
+<div class="error-icon">!</div>
+<div class="error-title"><span class="nt-lang-en">Action unavailable</span><span class="nt-lang-fr">Action indisponible</span></div>
+<div class="error-text"><span class="nt-lang-en">This action cannot be completed on this device. The required hardware or system component is unavailable.</span><span class="nt-lang-fr">Cette action ne peut pas être effectuée sur cet appareil. Le matériel ou composant système requis est indisponible.</span></div>
+<label class="error-ok" for="nt20-error-overlay"><span class="nt-lang-en">OK</span><span class="nt-lang-fr">OK</span></label>
+</div>
+</div>
+<!-- EXACTLY ONE FIXED NAV BAR -->
+<div class="nav">
+<div class="nav-cell">
+<span class="back-disabled">◁</span>
+<label class="back-option back-messages" for="nt20-home">◁</label>
+<label class="back-option back-gallery" for="nt20-home">◁</label>
+<label class="back-option back-phone-recent" for="nt20-home">◁</label>
+<label class="back-option back-phone-contacts" for="nt20-home">◁</label>
+<label class="back-option back-phone-keypad" for="nt20-home">◁</label>
+<label class="back-option back-camera" for="nt20-home">◁</label>
+<label class="back-option back-weather" for="nt20-home">◁</label>
+<label class="back-option back-settings" for="nt20-home">◁</label>
+<label class="back-option back-notes" for="nt20-home">◁</label>
+<label class="back-option back-recorder" for="nt20-home">◁</label>
+<label class="back-option back-recording1" for="nt20-recorder">◁</label>
+<label class="back-option back-recents" for="nt20-home">◁</label>
+<label class="back-option back-maya" for="nt20-messages">◁</label>
+<label class="back-option back-liv" for="nt20-messages">◁</label>
+<label class="back-option back-mom" for="nt20-messages">◁</label>
+<label class="back-option back-alex" for="nt20-messages">◁</label>
+<label class="back-option back-mrlouis" for="nt20-messages">◁</label>
+<label class="back-option back-photo1" for="nt20-gallery">◁</label>
+<label class="back-option back-photo1-menu" for="nt20-photo1">◁</label>
+<label class="back-option back-photo1-details" for="nt20-photo1">◁</label>
+<label class="back-option back-photo2" for="nt20-gallery">◁</label>
+</div>
+<div class="nav-cell">
+<label class="home-btn" for="nt20-home"><span class="home-pill"></span></label>
+</div>
+<div class="nav-cell">
+<label class="recent-btn" for="nt20-recents">▢</label>
+</div>
+</div>
+</div>
+</div>
+<script src="./phone.js"></script>
+</body>
+</html>
